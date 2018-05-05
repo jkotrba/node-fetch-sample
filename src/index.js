@@ -4,7 +4,7 @@ import Parser from 'body-parser'
 // import Multer from 'multer'
 import ErrorHandler from 'errorhandler'
 import ResponseTime from 'response-time'
-
+import weather from './weather'
 
 const port = process.env.PORT || 3000
 const ENV = process.env.NODE_ENV = process.env.NODE_ENV || 'development'
@@ -18,6 +18,7 @@ if (ENV === 'development') {
 }
 
 app.get('/', (req, res) => res.send('Hello World'))
+app.use('/api/weather', weather);
 
 app.listen(port, () => console.log(`Server started at: http://localhost:${port}`))
 
